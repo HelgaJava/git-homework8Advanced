@@ -10,7 +10,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 
-
 public class HouseService {
     private List<House> houses = new LinkedList<>();
 
@@ -43,19 +42,19 @@ public class HouseService {
                         resultSet.getString("district"),
                         resultSet.getString("underground")
                 )
-                );
+        );
         return houses;
     }
 
-    public House insertHouse(String url, House house){
+    public House insertHouse(String url, House house) {
         String textSql = "insert into houses (price, district, underground) values(?,?,?);";
-        int id = JdbcTemplate.executeInsert(url, textSql, stmt->{
+        int id = JdbcTemplate.executeInsert(url, textSql, stmt -> {
             stmt.setInt(1, house.getPrice());
             stmt.setString(2, house.getDistrict());
             stmt.setString(3, house.getUnderground());
         });
         house.setId(id);
-        return  house;
+        return house;
     }
 
     public List<House> sortByPrice() {

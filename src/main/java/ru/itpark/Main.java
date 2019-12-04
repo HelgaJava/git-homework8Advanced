@@ -65,9 +65,8 @@ public class Main {
         }
 
         House newhouse = houses.insertHouse("jdbc:sqlite:dbHouses", new House(0, 4_750_000, "Приволжский", "Дубравная"));
-        System.out.println("Новая запись: "+newhouse);
+        System.out.println("Новая запись: " + newhouse);
     }
-
 
 
 }
